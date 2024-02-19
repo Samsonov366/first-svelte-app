@@ -13,7 +13,7 @@
 
 <div class="card">
 	<div class="card__info">
-		<!-- <img src="/img/{song.album.cover}" alt={song.album.name} /> -->
+		<img src="/img/{song.imgName}" alt={song.title} />
 		<div class="card__info--details">
 			<h2>{song.title}</h2>
 			<h2>{song.artist}</h2>
@@ -45,11 +45,11 @@
 		margin-right: 0.8em;
 	}
 
-	/* .card > .card__info > img {
+	.card > .card__info > img {
 		width: 50px;
 		margin-right: 10px;
 		border-radius: 0.3em;
-	} */
+	}
 
 	.card > .card__info {
 		display: flex;

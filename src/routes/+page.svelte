@@ -4,14 +4,16 @@
   import {
     source,
     title,
+    imgName,
     isPlay,
     artist,
     isLoaded,
     index,
+    playMode,
   } from "../stores/song";
   import SongBar from "../components/SongBar.svelte";
   import { songs } from "../data/songs";
-  import { onEndedSong, showError } from "../helpers/song";
+  import { onEndedSong, PLAY_MODE, showError } from "../helpers/song";
 
   let time = 0,
     muted = false,
@@ -30,18 +32,28 @@
       time = 0;
       let lastSong = songs.length - 1;
 
-      let nextSong = $index + 1;
-      index.set(nextSong);
-      if ($index > lastSong) {
-        index.set(0);
-        onEndedSong(0, audio);
+      if ($playMode === PLAY_MODE[0]) {
+        let nextSong = $index + 1;
+        index.set(nextSong);
+        if ($index > lastSong) {
+          index.set(0);
+          onEndedSong(0, audio);
+        } else {
+          onEndedSong(nextSong, audio);
+        }
+      } else if ($playMode === PLAY_MODE[1]) {
+        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+        const randomIndex = songs.indexOf(randomSong);
+        index.set(randomIndex);
+        onEndedSong($index, audio);
       } else {
-        onEndedSong(nextSong, audio);
+        onEndedSong($index, audio);
       }
     };
     index.set(0);
     title.set(songs[0].title);
     artist.set(songs[0].artist);
+    imgName.set(songs[0].imgName);
     source.set(songs[0].filename);
   });
 
@@ -71,6 +83,7 @@
     index.set(i);
     title.set(song.title);
     artist.set(song.artist);
+    imgName.set(song.imgName);
     await source.set(song.filename);
     playAudio();
   };
@@ -91,19 +104,34 @@
 
   const nextSong = () => {
     if ($source) {
-      index.set($index + 1);
-      if ($index > lastSong) {
+      if ($playMode === PLAY_MODE[1]) {
+        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+        const randomIndex = songs.indexOf(randomSong);
+        index.set(randomIndex);
+      } else if ($index > lastSong) {
         index.set(0);
+      } else {
+        index.set($index + 1);
       }
+
       onEndedSong($index, audio);
     } else {
       showError();
     }
   };
 
-
-
-  let isLyricsPanel = false;
+  const changeMode = () => {
+    if ($playMode === PLAY_MODE[0]) {
+      playMode.set(PLAY_MODE[1]);
+      playModeIcon = "random";
+    } else if ($playMode === PLAY_MODE[1]) {
+      playMode.set(PLAY_MODE[2]);
+      playModeIcon = "repeat-1";
+    } else {
+      playMode.set(PLAY_MODE[0]);
+      playModeIcon = "repeat";
+    }
+  };
 </script>
 
 <svelte:head>
@@ -114,7 +142,12 @@
   <div class="card">
     <h1 class="card__title">{$title}</h1>
     <p class="card__artist">{$artist}</p>
-
+    <img
+      class="card__album"
+      draggable="false"
+      src="/img/{$imgName}"
+      alt={$title}
+    />
     <input
       type="range"
       on:input={seek}
@@ -125,6 +158,11 @@
     />
     <div class="card__minutes">
       <p>{formatDuration(time)}</p>
+      {#if $source}
+        <button type="button" on:click={changeMode}
+          ><i class="far fa-fw fa-{playModeIcon}" /></button
+        >
+      {/if}
       <p>{formatDuration(duration)}</p>
     </div>
     <div class="card__actions">
@@ -160,7 +198,7 @@
   <div class="card-playlist" style="height: 556px;">
     <div class="card-playlist__header">
       <h1>My Playlist</h1>
-      <p>{songs.length} {songs.length === 1 ? "song" : "songs"}</p>
+      <h2>{songs.length} {songs.length === 1 ? "song" : "songs"}</h2>
     </div>
     <div
       class="card-playlist__container"
@@ -310,17 +348,17 @@
   .card-playlist .card-playlist__header > h1 {
     font-weight: 600;
     font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    /* text-transform: uppercase; */
+    /* letter-spacing: 0.2em; */
   }
 
-  .card-playlist .card-playlist__header > h1:is(.lyrics) {
+  /* .card-playlist .card-playlist__header > h1:is(.lyrics) {
     margin-bottom: 0.8em;
-  }
+  } */
 
-  .card-playlist .card-playlist__header > p {
+  .card-playlist .card-playlist__header > h2 {
     color: gray;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
   }
 
   @media (min-width: 768px) {
