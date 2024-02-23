@@ -62,4 +62,29 @@ export const songs = [
     filename: `${SONG_PATH}river-flows-in-your.mp3`,
     imgName: "yiruma.jpg",
   },
+  {
+    title: "Kaerazaru hibi",
+    artist: "Joe Hisaishi",
+    movie: "Porco Rosso",
+    filename: `${SONG_PATH}kaerazaru-hibi.mp3`,
+    imgName: "porco.jpg",
+  },  {
+    title: "Arietty's song",
+    artist: "Cécile Corbel",
+    movie: "Arietty",
+    filename: `${SONG_PATH}arietty.mp3`,
+    imgName: "arietty.jpg",
+  },  {
+    title: "Comptine d'un autre été",
+    artist: "Yann Tiersen",
+    movie: "Amélie Poulain",
+    filename: `${SONG_PATH}comptine.mp3`,
+    imgName: "amelie.jpg",
+  },  {
+    title: "Le moulin",
+    artist: "Yann Tiersen",
+    movie: "Amélie Poulain",
+    filename: `${SONG_PATH}le-moulin.mp3`,
+    imgName: "amelie.jpg",
+  },
 ];
