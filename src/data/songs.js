@@ -18,14 +18,14 @@ export const songs = [
     artist: "Joe Hisaishi",
     movie: "Chihiro",
     filename: `${SONG_PATH}one-summer-day.mp3`,
-    imgName: "chihiro.jpg",
+    imgName: "chihiro2.jpg",
   },
   {
     title: "Waltz of Chihiro",
     artist: "Joe Hisaishi",
     movie: "Chihiro",
     filename: `${SONG_PATH}waltz-of-chihiro.mp3`,
-    imgName: "chihiro.jpg",
+    imgName: "chihiro2.jpg",
   },
   {
     title: "Howl's moving castle",
@@ -86,5 +86,23 @@ export const songs = [
     movie: "Amélie Poulain",
     filename: `${SONG_PATH}le-moulin.mp3`,
     imgName: "amelie.jpg",
+  },  {
+    title: "La dispute",
+    artist: "Yann Tiersen",
+    movie: "Amélie Poulain",
+    filename: `${SONG_PATH}la-dispute.mp3`,
+    imgName: "amelie.jpg",
+  },  {
+    title: "La bohème",
+    artist: "Charles Aznavour",
+    movie: "",
+    filename: `${SONG_PATH}la-boheme.mp3`,
+    imgName: "la-boheme.jpg",
+  },  {
+    title: "Nocturnal waltz",
+    artist: "Johannes Bornlof",
+    movie: "",
+    filename: `${SONG_PATH}nocturnal-waltz.mp3`,
+    imgName: "nocturnal-waltz.jpg",
   },
 ];
