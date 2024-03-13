@@ -35,11 +35,32 @@ export const songs = [
     imgName: "howls.jpg",
   },
   {
+    title: "Castle in the sky",
+    artist: "Joe Hisaishi",
+    movie: "Castle in the sky",
+    filename: `${SONG_PATH}laputa.mp3`,
+    imgName: "laputa.jpg",
+  },
+  {
     title: "The legend of Ashitaka",
     artist: "Joe Hisaishi",
     movie: "Princess Mononoke",
     filename: `${SONG_PATH}mononoke.mp3`,
     imgName: "mononoke.jpg",
+  },
+  {
+    title: "Kaerazaru hibi",
+    artist: "Joe Hisaishi",
+    movie: "Porco Rosso",
+    filename: `${SONG_PATH}kaerazaru-hibi.mp3`,
+    imgName: "porco.jpg",
+  },
+  {
+    title: "Arietty's song",
+    artist: "Cécile Corbel",
+    movie: "Arietty",
+    filename: `${SONG_PATH}arietty.mp3`,
+    imgName: "arietty.jpg",
   },
   {
     title: "Sparkle",
@@ -63,42 +84,34 @@ export const songs = [
     imgName: "yiruma.jpg",
   },
   {
-    title: "Kaerazaru hibi",
-    artist: "Joe Hisaishi",
-    movie: "Porco Rosso",
-    filename: `${SONG_PATH}kaerazaru-hibi.mp3`,
-    imgName: "porco.jpg",
-  },  {
-    title: "Arietty's song",
-    artist: "Cécile Corbel",
-    movie: "Arietty",
-    filename: `${SONG_PATH}arietty.mp3`,
-    imgName: "arietty.jpg",
-  },  {
     title: "Comptine d'un autre été",
     artist: "Yann Tiersen",
     movie: "Amélie Poulain",
     filename: `${SONG_PATH}comptine.mp3`,
     imgName: "amelie.jpg",
-  },  {
+  },
+  {
     title: "Le moulin",
     artist: "Yann Tiersen",
     movie: "Amélie Poulain",
     filename: `${SONG_PATH}le-moulin.mp3`,
     imgName: "amelie.jpg",
-  },  {
+  },
+  {
     title: "La dispute",
     artist: "Yann Tiersen",
     movie: "Amélie Poulain",
     filename: `${SONG_PATH}la-dispute.mp3`,
     imgName: "amelie.jpg",
-  },  {
+  },
+  {
     title: "La bohème",
     artist: "Charles Aznavour",
     movie: "",
     filename: `${SONG_PATH}la-boheme.mp3`,
     imgName: "la-boheme.jpg",
-  },  {
+  },
+  {
     title: "Nocturnal waltz",
     artist: "Johannes Bornlof",
     movie: "",
