@@ -1,18 +1,6 @@
-# create-svelte
+## Piano songs music player made with SvelteKit and inspired by https://github.com/mohamadadithya/muzyka
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
 ## Developing
 
@@ -23,7 +11,7 @@ npm run dev
 
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
-```
+````
 
 ## Building
 
