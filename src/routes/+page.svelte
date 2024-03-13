@@ -197,7 +197,7 @@
   <!-- Playlist Panel -->
   <div class="card-playlist" style="height: 556px;">
     <div class="card-playlist__header">
-      <h1>My Playlist</h1>
+      <h1>Song list</h1>
       <h2>{songs.length} {songs.length === 1 ? "song" : "songs"}</h2>
     </div>
     <div
@@ -343,6 +343,9 @@
     top: 0;
     width: 100%;
     background-color: white;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
   }
 
   .card-playlist .card-playlist__header > h1 {
